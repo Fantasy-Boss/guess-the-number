@@ -1,5 +1,4 @@
 let origin = randomize()
-console.log(origin)
 let life = 7
 
 $(document).ready(function () {
