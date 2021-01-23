@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="icon" href="assets/icon-96.png" type="image/png">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name=description content="Guess The Number To Win">
+    <!-- IOS Support -->
+    <link rel="apple-touch-icon" href="assets/icon-96.png"> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ff0000">
+    <meta name="theme-color" content="#ff0000">
+</head>
+<body>
+    <div class="container noselect">
+        <h1>Guess The Number</h1>
+        <div class="blur">00</div>
+        <h3>Guess The Number Between 1-99</h3>
+        <div class="heart">
+            <img src="assets/heart.png" >
+            <img src="assets/heart.png">
+            <img src="assets/heart.png">
+            <img src="assets/heart.png">
+            <img src="assets/heart.png">
+            <img src="assets/heart.png">
+            <img src="assets/heart.png">
+        </div>
+        <input id="input" type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;" placeholder="Enter Your Guess" autofocus><br><br>
+        <div class="buttons">
+            <button class="check btn" type="submit">Check</button>
+        </div>
+        <div>
+            <button class="restart btn">Restart</button>
+        </div>
+        <br>
+        
+        <div class="alert red worng">Opps, Not Even Close</div>
+        <div class="alert green">Awesome, You Got It</div>
+        <div class="alert yellow">You Are Getting Closer</div>
+        <div class="alert blue">You Are Soo Close</div>
+        <div class="alert red end">Game Over</div>
+        <div class="alert red value">Enter A Number Between 1-99</div>
+
+        <div class="contain">
+            <div class="contain-li">
+                <ul id="ul"></ul>
+            </div>
+        </div><br>
+    </div>
+    <script>
+        window.addEventListener('load', async function() {
+            if ('serviceWorker' in navigator) {
+                try {
+                    await navigator.serviceWorker.register('sw.js');
+                } catch (err) {
+                    console.log(`SW registration failed`, err);
+                }
+            }
+        })
+    </script>
+    <script src="assets/jquery-3.5.1.min.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
